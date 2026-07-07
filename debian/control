@@ -1,0 +1,32 @@
+Source: eval-type-backport
+Section: python
+Priority: optional
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-python,
+ pybuild-plugin-pyproject,
+ python3-all,
+ python3-setuptools,
+ python3-setuptools-scm,
+ python3-wheel,
+Standards-Version: 4.7.0
+Homepage: https://github.com/alexmojaki/eval_type_backport
+Vcs-Git: https://github.com/Vitexus/eval_type_backport.git
+Vcs-Browser: https://github.com/Vitexus/eval_type_backport
+Rules-Requires-Root: no
+
+Package: python3-eval-type-backport
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+Description: Backport of typing._eval_type for older Python versions
+ Like typing._eval_type, but lets older Python versions use newer
+ typing features.
+ .
+ This package provides a Python 3 module that lets libraries which
+ read type hints (such as Pydantic) support new-style typing syntax
+ (e.g. X | Y unions) on Python versions older than 3.10, without
+ requiring the from __future__ import annotations workaround.
